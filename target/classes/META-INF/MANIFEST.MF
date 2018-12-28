@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Implementation-Title: messenger
 Implementation-Version: 0.0.1-SNAPSHOT
 Built-By: yogesh
-Implementation-Vendor-Id: com.messenger
+Implementation-Vendor-Id: com.ymhase.messenger
 Build-Jdk: 1.8.0_181
 Implementation-URL: http://maven.apache.org
 Created-By: Maven Integration for Eclipse

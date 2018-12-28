@@ -11,23 +11,20 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "group")
-public class GroupDao {
+@Table(name = "groupm")
+public class Group {
 
         @Id
-        @Column(name = "id")
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private int id;
+        @GeneratedValue(strategy = GenerationType.IDENTITY )
+        private Integer id;
 
-        @Column(name = "name")
+        @Column(name = "name", nullable = true)
         private String name;
 
-        public GroupDao() {
-                super();
+        public Group() {
         }
 
-        public GroupDao(int id, String name) {
-                super();
+        public Group(Integer id, String name) {
                 this.id = id;
                 this.name = name;
         }

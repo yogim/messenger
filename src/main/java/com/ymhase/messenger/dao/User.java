@@ -12,24 +12,22 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "user")
-public class UserDao {
+public class User {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private int id;
+        private Integer id;
 
         @Column(name = "name", columnDefinition = "TEXT", nullable = false)
         private String name;
 
-        @Column(name = "phoneNo", columnDefinition = "TEXT", nullable = false)
+        @Column(name = "phoneno", columnDefinition = "TEXT", nullable = false)
         private String phoneNo;
 
-        public UserDao() {
-                super();
+        public User() {
         }
 
-        public UserDao(int id, String name, String phoneNo) {
-                super();
+        public User(Integer id, String name, String phoneNo) {
                 this.id = id;
                 this.name = name;
                 this.phoneNo = phoneNo;

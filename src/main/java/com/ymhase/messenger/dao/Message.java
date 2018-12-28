@@ -18,56 +18,51 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "message")
-public class MessageDao {
+public class Message {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private int id;
+        private Integer id;
 
         @Column(name = "message", columnDefinition = "TEXT", nullable = false)
         private String message;
 
-        @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
-        private int senderId;
+        @ManyToOne(targetEntity = User.class, fetch = FetchType.LAZY)
+        @JoinColumn(name = "senderid", referencedColumnName = "id", nullable = false)
+        private User senderid;
 
-        @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "user", referencedColumnName = "id", nullable = false)
-        private int receiverId;
+        @ManyToOne(targetEntity = User.class, fetch = FetchType.LAZY)
+        @JoinColumn(name = "receiverid", referencedColumnName = "id", nullable = false)
+        private User receiverid;
 
-        @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "group", referencedColumnName = "id", nullable = false)
-        private int groupid;
+        @ManyToOne(targetEntity = Group.class, fetch = FetchType.LAZY)
+        @JoinColumn(name = "groupid", referencedColumnName = "id", nullable = false)
+        private Group groupid;
 
         @Column(name = "hasreceived", columnDefinition = "tinyint", nullable = false)
-        private int hasreceived;
+        private Boolean hasreceived;
 
+        @Column
         @Temporal(javax.persistence.TemporalType.TIMESTAMP)
         private Date sendat;
-        
+
+        @Column
         @Temporal(javax.persistence.TemporalType.TIMESTAMP)
         private Date receivedat;
-        
-        
 
-        MessageDao() {
+        Message() {
         }
 
-
-
-        public MessageDao(int id, String message, int senderId, int receiverId, int groupid, int hasreceived,
-                        Date sendat, Date receivedat) {
-                super();
+        public Message(Integer id, String message, User senderid, User receiverid, Boolean hasreceived,
+                        Date sendat, Date receivedat, Group groupid) {
                 this.id = id;
                 this.message = message;
-                this.senderId = senderId;
-                this.receiverId = receiverId;
+                this.senderid = senderid;
+                this.receiverid = receiverid;
                 this.groupid = groupid;
                 this.hasreceived = hasreceived;
                 this.sendat = sendat;
                 this.receivedat = receivedat;
         }
-
-       
 
 }
